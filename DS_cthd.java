@@ -155,7 +155,7 @@ public int getMaSp(int dh) {
         DS_Sanpham sp = new DS_Sanpham();
 		sp.DocFileJava("../src/Sanpham.txt");		
         for(int i=0;i<n;i++){
-            sp.setSoLuong(cthd[i].getMASP(),cthd[i].getSoluong());
+            sp.setSoLuong(cthd[i].getMASP(),cthd[i].getSL());
         }
         sp.GhiFileJava("../src/Sanpham.txt");
     }

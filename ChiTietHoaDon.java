@@ -85,6 +85,8 @@ public class ChiTietHoaDon {
         System.out.print("So luong: ");
         SL = sc.nextInt();
         dongia = dssp.Truyengiasanpham(maSP);
+        dssp.setSoLuonghd(maSP,SL);
+        dssp.GhiFileJava("../src/Sanpham.txt");
     }
     
     public void xuatchitiethoadon() {
@@ -92,7 +94,11 @@ public class ChiTietHoaDon {
         System.out.format("%-8d %-20s %-8d %-8.2f %-8.2f%n", maSP, TenSP, SL, dongia, thanhtien);
 
     }
-
+    public void updateSL(int masp,int soluong){
+        dssp.DocFileJava("../src/Sanpham.txt");
+        dssp.setSoLuongpn(masp,soluong);
+        dssp.GhiFileJava("../src/Sanpham.txt");
+    }
     public void GhiFile(String filename) throws IOException {
         try (DataOutputStream dos = new DataOutputStream(new FileOutputStream(filename, true))) {
             dos.writeUTF(maHD);

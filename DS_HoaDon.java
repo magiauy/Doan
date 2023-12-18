@@ -7,7 +7,7 @@ import java.time.format.DateTimeFormatter;
 public class DS_HoaDon implements DanhSach{
   private int n;
   private HoaDon[] hd;
-  private DS_Chitiethoadon cthd = new DS_Chitiethoadon(0);
+  private DS_Chitiethoadon cthd  = new DS_Chitiethoadon(0);
   Scanner scanner = new Scanner(System.in);
 
   public DS_HoaDon() {
@@ -25,13 +25,14 @@ public class DS_HoaDon implements DanhSach{
       hd[i] = new HoaDon();
       hd[i].nhaphoadon();
       cthd.nhap(hd[i].getMaHoaDon());
+      cthd.apmakm(hd[i].getMaKhuyenMai(),hd[i].getMaHoaDon());
+
     }
   }
 
   public void xuat() {
     for (int i = 0; i < n; i++) {
       hd[i].xuathoadon();
-      cthd.apmakm(hd[i].getMaKhuyenMai());
       cthd.xuat(hd[i].getMaHoaDon());
     }
   }
@@ -41,7 +42,10 @@ public class DS_HoaDon implements DanhSach{
     hd[n] = new HoaDon();
     hd[n].nhaphoadon();
     cthd.nhap(hd[n].getMaHoaDon());
+    cthd.apmakm(hd[n].getMaKhuyenMai(),hd[n].getMaHoaDon());
     n++;
+    Ghifile();
+    GhiFileJava("../src/Hoadon.txt");
   }
 
   public void xoahoadon() {
@@ -50,13 +54,20 @@ public class DS_HoaDon implements DanhSach{
     mahd = scanner.nextLine();
     for (int i = 0; i < n; i++) {
       if (hd[i].getMaHoaDon().equals(mahd)) {
+            System.out.println("Da xoa hoa don: "+hd[i].getMaHoaDon());
         for (int j = i; j < n - 1; j++) {
           hd[j] = hd[j + 1];
         }
+        hd=Arrays.copyOf(hd, hd.length-1);
         n--;
         break;
+        
       }
     }
+    cthd.xoaMaHD(mahd);
+    Ghifile();
+    GhiFileJava("../src/Hoadon.txt");
+
   }
 
   public void xoahoadon(String mahd) {
@@ -65,10 +76,13 @@ public class DS_HoaDon implements DanhSach{
         for (int j = i; j < n - 1; j++) {
           hd[j] = hd[j + 1];
         }
+        hd=Arrays.copyOf(hd, hd.length-1);
         n--;
         break;
       }
     }
+        cthd.xoaMaHD(mahd);
+
   }
 
   public void suahoadon() {
@@ -245,4 +259,11 @@ public class DS_HoaDon implements DanhSach{
         e.printStackTrace();
     }
 }
+public void setSoLuong(){
+  DS_Chitiethoadon cthd = new DS_Chitiethoadon(0);
+  cthd.DocFileJava("../src/Chitiethoadon.txt");
+  cthd.setSoLuong();
+}
+
+
 }

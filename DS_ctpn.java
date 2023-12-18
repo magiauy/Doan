@@ -8,6 +8,7 @@ public class DS_ctpn implements DanhSach{
     private String MaPN;
     private int n;
     private O_ChiTietPhieuNhap[] ctpn;
+    private DS_Sanpham dssp;
     Scanner scanner = new Scanner(System.in);
 
     public DS_ctpn(){
@@ -25,16 +26,41 @@ public class DS_ctpn implements DanhSach{
     }
     public void nhap(String id){
         String cancel;
+        int choice;
+        dssp = new DS_Sanpham(0);
+        dssp.DocFileJava("../src/Sanpham.txt");
         this.MaPN=id;
-        while (true) {
             System.out.println("Them san pham");
+            dssp.xuat();
             them();
-            System.out.print("Tiep tuc them san pham [y/n]: ");
-            cancel = scanner.nextLine();
-            if (!cancel.equalsIgnoreCase("y")) {
-                break; // Thoát khỏi vòng lặp nếu người dùng không muốn tiếp tục
-            }
-        }
+            do{
+                System.out.println("\n----- Menu -----");
+                    System.out.println("1. Them san pham");
+                    System.out.println("2. Sua so luong");
+                    System.out.println("3. Xoa san pham");
+                    System.out.println("4. Thoat");
+        
+                    // Nhap lua chon tu nguoi dung
+                    System.out.print("Nhap lua chon cua ban (1-4): ");
+                    choice = scanner.nextInt();
+                    switch (choice) {
+                      case 1:
+                          them();
+                          break;
+                      case 2:
+                          // sua();
+                          break;
+                      case 3:
+                          xoa();
+                          break;
+                      case 4:
+                          System.out.println("Thoat chuong trinh");
+                          break;
+                      default:
+                          System.out.println("Lua chon khong hop le. Vui long nhap lai.");
+                  }
+        
+              }while(choice != 4);
 }
 
     public void xuat(String id){

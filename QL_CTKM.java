@@ -6,6 +6,7 @@ public class QL_CTKM {
 
 
     public void menu() {
+        QL_Khuyenmai km = new QL_Khuyenmai();
         ds = new DS_CTKM();
         ds.them(new O_ChuongTrinhKhuyenMai("CT01", "Big Sale", "2023/12/01", "2023/12/31"));
         ds.them(new O_ChuongTrinhKhuyenMai("CT02", "Winter Discount", "2023/12/02", "2023/12/30"));
@@ -26,7 +27,8 @@ public class QL_CTKM {
             System.out.println("3: Sua thong tin Chuong Trinh Khuyen Mai");
             System.out.println("4: Tim kiem Chuong Trinh Khuyen Mai");
             System.out.println("5: Xuat danh sach Chuong Trinh Khuyen Mai");
-            System.out.println("6: Ket thuc chuong trinh.");
+            System.out.println("6: Quan ly khuyen mai");
+            System.out.println("7: Ket thuc chuong trinh.");
             System.out.print("Chon thao tac: ");
             int choice;
             choice = input.nextInt();
@@ -55,6 +57,8 @@ public class QL_CTKM {
                     System.out.println("----------------Thong tin Chuong Trinh Khuyen Mai----------------");
                     ds.xuat();
                     break;
+                case 6:
+                    km.menu();
                 default:
                     System.out.println("--------------Ket thuc chuong trinh!---------------");
                     flag = false;

@@ -64,11 +64,14 @@ public class O_ChiTietPhieuNhap {
         scanner.nextLine();
         DonGia=(dssp.Truyengiasanpham(MaSP)*0.5);
         TenSP = dssp.getTenSP(MaSP);
+        dssp.setSoLuongpn(MaSP,SoLuong);
+        dssp.GhiFileJava("../src/Sanpham.txt");
     }
     public void xuat(){
         double ThanhTien;
         dssp.DocFileJava("../src/Sanpham.txt");
         ThanhTien=DonGia*SoLuong;
+        double tempDG = DonGia-(DonGia*40)/100;
         System.out.format("%-8s %-8d %-20s %-8d %-8.0f %-8.0f\n",MaPN,MaSP,TenSP,SoLuong,DonGia,ThanhTien);
     }
     public void GhiFile(String filename)throws IOException{

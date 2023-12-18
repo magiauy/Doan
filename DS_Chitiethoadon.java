@@ -51,19 +51,42 @@ public class DS_Chitiethoadon implements DanhSach{
 
   public void nhap(String ma) {
     String cancel;
+    int choice;
     this.MaHD = ma;
     dssp.DocFileJava("../src/Sanpham.txt");
     System.out.println("Hoa don so:" + MaHD);
-    while (true) {
         dssp.xuat();
       System.out.println("Them san pham");
       them();
-      System.out.print("Tiep tuc them san pham [y/n]: ");
-      cancel = scanner.nextLine();
-      if (!cancel.equalsIgnoreCase("y")) {
-        break; // Thoát khỏi vòng lặp nếu người dùng không muốn tiếp tục
-      }
-    }
+      do{
+        System.out.println("\n----- Menu -----");
+            System.out.println("1. Them san pham");
+            System.out.println("2. Sua so luong");
+            System.out.println("3. Xoa san pham");
+            System.out.println("4. Thoat");
+
+            // Nhap lua chon tu nguoi dung
+            System.out.print("Nhap lua chon cua ban (1-4): ");
+            choice = scanner.nextInt();
+            switch (choice) {
+              case 1:
+                  them();
+                  break;
+              case 2:
+                  // sua();
+                  break;
+              case 3:
+                  xoa();
+                  break;
+              case 4:
+                  System.out.println("Thoat chuong trinh");
+                  break;
+              default:
+                  System.out.println("Lua chon khong hop le. Vui long nhap lai.");
+          }
+
+      }while(choice != 4);
+    
   }
 
   public void xuat(String HD) {
@@ -82,7 +105,31 @@ public class DS_Chitiethoadon implements DanhSach{
       cthd[i].xuatchitiethoadon();
     }
   }
+  public void xoa(){
+    System.out.print("Nhap thu tu can xoa: ");
+    int c = scanner.nextInt();
+    for(int i=0;i<n;i++){
+      if ((c-1)==i) {
+        cthd[i].updateSL(cthd[i].getmaSP(),cthd[i].getSL());
+        for (int j = i; j < n - 1; j++) {
+          cthd[j] = cthd[j + 1];
+        }
+      }
+    }
+  }
+  public void xoaMaHD(String id){
+    for(int i=0;i<n;i++){
+      if (cthd[i].getmaHD().equals(id)) {
+        for (int j = i; j < n - 1; j++) {
+          cthd[j] = cthd[j + 1];
+        }
+    cthd=Arrays.copyOf(cthd, cthd.length-1);
+    n--;
+      }
 
+    }
+
+  }
   public void xoaMaSP() {
     boolean daTimThay = false;
     System.out.println("Chon ma san pham can xoa: ");
@@ -165,14 +212,24 @@ public class DS_Chitiethoadon implements DanhSach{
       e.printStackTrace();
     }
   }
-  public void apmakm(String id){
+  public void apmakm(String id,String mahd){
     dsctkm.DocFileJava("../src/ChuongTrinhKhuyenMai.txt");
     dsctkm.docFile();
     dskm.DocFileJava("../src/KhuyenMai.txt");
     if (dsctkm.getMaKM(id)!=null) {
       for(int i=0;i<n;i++){
+        if(cthd[i].getmaHD().equals(mahd)){
         cthd[i].setdongia(dskm.apdungkm((cthd[i]).getdongia(),cthd[i].getmaSP(),id));
+      }
       }
     }
   }
+  public void setSoLuong(){
+    DS_Sanpham sp = new DS_Sanpham();
+  sp.DocFileJava("../src/Sanpham.txt");		
+    for(int i=0;i<n;i++){
+        sp.setSoLuonghd(cthd[i].getmaSP(),cthd[i].getSL());
+    }
+    sp.GhiFileJava("../src/Sanpham.txt");
+}
 }

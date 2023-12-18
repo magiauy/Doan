@@ -1,16 +1,15 @@
 import java.util.Scanner;
 
 public class QL_Hoadon {
-    private DS_HoaDon dshd=new DS_HoaDon(0);
     Scanner scanner = new Scanner(System.in);
         public void menu(){
             Scanner scanner = new Scanner(System.in);
             DS_HoaDon dshd = new DS_HoaDon(); 
-            dshd.DocFileJava("../src/Hoadon.txt");
-            dshd.Docfile();
             int choice;
     
             do {
+            dshd.DocFileJava("../src/Hoadon.txt");
+            dshd.Docfile();
                 System.out.println("===== Menu =====");
                 System.out.println("1. Thêm hóa đơn");
                 System.out.println("2. Xóa hóa đơn");

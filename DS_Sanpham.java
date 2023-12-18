@@ -38,7 +38,7 @@ public class DS_Sanpham implements DanhSach{
 					break;
 				}
 			}
-		Scanner.close();
+		
 		}
 	
 	public void xuat(){
@@ -90,7 +90,7 @@ public class DS_Sanpham implements DanhSach{
 				default:
 					break;
 			}
-		Scanner.close();
+		
 		}
 		else{
 			System.out.println("Danh sach da day");
@@ -118,7 +118,7 @@ public class DS_Sanpham implements DanhSach{
 		if (!daTimThay) {
 			System.out.println("Khong tim thay san pham voi MaSP: "+tempMaSP);
 		}
-		Scanner.close();
+		
 	}
 	public void xoa(int MaSP){
 		int tempMaSP=MaSP;
@@ -173,8 +173,7 @@ public class DS_Sanpham implements DanhSach{
 						break;
 						
 				}
-	
-		Scanner.close();
+		GhiFileJava("../src/Sanpham.txt");
 		}
 	public void fixMaSP(){
 		Scanner Scanner = new Scanner(System.in);
@@ -189,7 +188,7 @@ public class DS_Sanpham implements DanhSach{
 			}
 		}
 		System.out.println("Da thay the thanh cong");
-		Scanner.close();
+		
 	}
 	public void fixMaSP(int tempMaSP,int fixsp){
 		for (int i=0;i<n ;i++ ) {
@@ -213,7 +212,7 @@ public class DS_Sanpham implements DanhSach{
 			}
 		}
 		System.out.println("Da thay the thanh cong");
-		Scanner.close();
+		
 
 	}
 	public void fixTenSP(int tempMaSP,String fixTen){
@@ -238,7 +237,6 @@ public class DS_Sanpham implements DanhSach{
 			}
 		}
 		System.out.println("Da thay the thanh cong");
-		Scanner.close();
 
 	}
 	public void fixSoLuong(int tempMaSP , int fixSoLuong){
@@ -263,7 +261,7 @@ public class DS_Sanpham implements DanhSach{
 			}
 		}
 		System.out.println("Da thay the thanh cong");
-		Scanner.close();
+		
 	}
 	
 	public void fixDonGia(int tempMaSP , int fixDonGia){
@@ -288,7 +286,7 @@ public class DS_Sanpham implements DanhSach{
 			}
 		}
 		System.out.println("Da thay the thanh cong");
-		Scanner.close();
+		
 	}
 	public void fixDonVi(int tempMaSP, String fixDonVi){
 		for (int i=0;i<n ;i++ ) {
@@ -312,7 +310,7 @@ public class DS_Sanpham implements DanhSach{
 			}
 		}
 		System.out.println("Da thay the thanh cong");
-		Scanner.close();
+		
 
 			}
 	public void fixMaLoai(int tempMaSP ,int fixMaLoai){
@@ -344,7 +342,6 @@ public class DS_Sanpham implements DanhSach{
 			default:
 				break;
 		}
-		Scanner.close();
 	}
 	public void findMaSP(){
 		Scanner Scanner = new Scanner(System.in);
@@ -355,7 +352,7 @@ public class DS_Sanpham implements DanhSach{
 				sp[i].xuat();
 			}
 		}
-		Scanner.close();
+		
 	}
 	public void findMaSP(int tempMaSP){
 		for(int i=0;i<n;i++){
@@ -374,7 +371,7 @@ public class DS_Sanpham implements DanhSach{
 				sp[i].xuat();
 			}
 		}
-		Scanner.close();
+		
 	}
 	public void findTenSP(String tempTenSP){
 		for(int i=0 ;i<n;i++){
@@ -394,7 +391,7 @@ public class DS_Sanpham implements DanhSach{
 				sp[i].xuat();
 			}
 		}
-		Scanner.close();
+		
 	}
 	public void findkhoangia(int tempgia1,int tempgia2){
 		for(int i=0;i<n;i++){
@@ -420,7 +417,7 @@ public class DS_Sanpham implements DanhSach{
 			default:
 				break;
 		}
-		Scanner.close();
+		
 	}
 	// public void thongkeloai() {
 	// 	int[] coutloai = new int[m+1];
@@ -531,6 +528,7 @@ public class DS_Sanpham implements DanhSach{
 			}
 		}
 	}
+	
 	public void setSoLuongpn(int MaSP,int newsl){
 		for(int i=0;i<n;i++){
 			if (sp[i].getMaSP()==MaSP) {

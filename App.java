@@ -46,14 +46,17 @@ public class App {
                 case 6:
                     QL_Phienhap pn = new QL_Phienhap();
                     pn.menu();
+                    break;
                     //Waitting
                 case 7:
+                    QuanLyKH kh = new QuanLyKH();
+                    kh.menu();
                     break;
                 default:
                     System.out.println("Lựa chọn không hợp lệ. Vui lòng chọn lại.");
             }
 
-        } while (choice != 7);
+        } while (choice != 8);
 
         scanner.close();
     }
