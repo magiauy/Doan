@@ -1,4 +1,4 @@
 public interface Object {
-    nhap();
-    xuat();
+    void nhap();
+    void xuat();
 }

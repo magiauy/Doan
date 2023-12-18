@@ -2,7 +2,7 @@ import java.io.*;
 import java.lang.Object;
 import java.util.Scanner;
 
-public class O_NhanVien implements Object{
+public class O_NhanVien{
     private String MaNV;
     private String HoDem;
     private String TenNV;

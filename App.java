@@ -13,7 +13,7 @@ public class App {
             System.out.println("4. Quản lý nhà cung cấp");
             System.out.println("5. Quản lý nhân viên");
             System.out.println("6. Quản lý phiếu nhập");
-
+            System.out.println("7. Thoát chương  trình");
             System.out.print("Nhập lựa chọn của bạn: ");
             choice = scanner.nextInt();
             scanner.nextLine();
@@ -48,7 +48,6 @@ public class App {
                     pn.menu();
                     //Waitting
                 case 7:
-                    System.out.println("Chương trình kết thúc. Tạm biệt!");
                     break;
                 default:
                     System.out.println("Lựa chọn không hợp lệ. Vui lòng chọn lại.");

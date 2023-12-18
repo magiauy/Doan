@@ -2,7 +2,7 @@ import java.io.*;
 import java.util.Map;
 import java.util.Scanner;
 import java.util.zip.DataFormatException;
-public class O_ChiTietPhieuNhap implements Object{
+public class O_ChiTietPhieuNhap {
     private String MaPN;
     private int MaSP;
     private String TenSP;

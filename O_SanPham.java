@@ -1,7 +1,7 @@
 import java.io.*;
 import java.lang.Object;
 import java.util.Scanner;
-public class O_SanPham implements Object{
+public class O_SanPham{
     protected int MaSP;
     protected String TenSP;
     protected int SoLuong;

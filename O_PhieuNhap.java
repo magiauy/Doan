@@ -1,7 +1,7 @@
 import java.util.Scanner;
 import java.io.*;
 import java.lang.Object;
-public class O_PhieuNhap implements Object{
+public class O_PhieuNhap{
     private String MaPN;
     private String MaNV;
     private String MaNCC;
