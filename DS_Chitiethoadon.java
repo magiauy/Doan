@@ -1,5 +1,8 @@
 import java.util.Arrays;
 import java.util.Scanner;
+
+import javax.print.attribute.standard.DocumentName;
+
 import java.io.*;
 
 public class DS_Chitiethoadon implements DanhSach{
@@ -8,6 +11,8 @@ public class DS_Chitiethoadon implements DanhSach{
   private String MaHD;
   private ChiTietHoaDon[] cthd;
   private DS_Sanpham dssp = new DS_Sanpham(0);
+  private DS_CTKM dsctkm = new DS_CTKM();
+  private DS_KM dskm = new DS_KM();
 
   Scanner scanner = new Scanner(System.in);
 
@@ -160,5 +165,14 @@ public class DS_Chitiethoadon implements DanhSach{
       e.printStackTrace();
     }
   }
-
+  public void apmakm(String id){
+    dsctkm.DocFileJava("../src/ChuongTrinhKhuyenMai.txt");
+    dsctkm.docFile();
+    dskm.DocFileJava("../src/KhuyenMai.txt");
+    if (dsctkm.getMaKM(id)!=null) {
+      for(int i=0;i<n;i++){
+        cthd[i].setdongia(dskm.apdungkm((cthd[i]).getdongia(),cthd[i].getmaSP(),id));
+      }
+    }
+  }
 }

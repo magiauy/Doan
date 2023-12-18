@@ -326,5 +326,17 @@ public class DS_KM {
 			e.printStackTrace();
 		}
 	}
+    public double apdungkm(double Dongia,int MaSP,String ctkm){
+        for(int i=0;i<n;i++){
+            if (ds[i].getMaCT().equals(ctkm)) {
+            if (ds[i] instanceof O_KhuyenMaiTheoSP) {
+                if (ds[i].getptkm()==MaSP) {
+                    return Dongia-(Dongia*ds[i].getMucKM())/100;
+                }
+            }
+            }
+        }
+        return Dongia;
+    }
 
 }

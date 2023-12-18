@@ -31,7 +31,8 @@ public abstract class O_KhuyenMai implements Object{
     public int getMucKM() {
         return MucKM;
     }
-
+    public abstract int getptkm();
+    public abstract void setptkm(int id);
     public void setMaCT(String MaCT) {
         this.MaCT = MaCT;
     }

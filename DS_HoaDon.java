@@ -31,6 +31,7 @@ public class DS_HoaDon implements DanhSach{
   public void xuat() {
     for (int i = 0; i < n; i++) {
       hd[i].xuathoadon();
+      cthd.apmakm(hd[i].getMaKhuyenMai());
       cthd.xuat(hd[i].getMaHoaDon());
     }
   }

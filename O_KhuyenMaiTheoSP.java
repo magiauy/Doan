@@ -13,6 +13,12 @@ public class O_KhuyenMaiTheoSP extends O_KhuyenMai implements Object{
         super((O_KhuyenMai)sp);
         MaSP = sp.MaSP;
     }
+    public int getptkm(){
+        return MaSP;
+    }
+    public void setptkm(int MaSP){
+        this.MaSP=MaSP;
+    }
     public int getMaSP() {
         return MaSP;
     }

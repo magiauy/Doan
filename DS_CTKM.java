@@ -4,6 +4,8 @@ import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
 import java.util.Scanner;
 
+import javax.crypto.Mac;
+
 public class DS_CTKM implements DanhSach{
     private O_ChuongTrinhKhuyenMai[] ds;
     private int n;
@@ -318,6 +320,12 @@ public class DS_CTKM implements DanhSach{
             e.printStackTrace();
         }
     }
-
+    public String getMaKM(String id){
+        for(int i=0;i<n;i++){
+            ds[i].getMaCT().equals(id);;
+            return ds[i].getMaCT();
+        }
+        return null;
+    }
 
 }

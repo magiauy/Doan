@@ -13,7 +13,12 @@ public class O_KhuyenMaiTheoHoaDon extends O_KhuyenMai implements Object{
         super((O_KhuyenMai)hd);
         MucGia = hd.MucGia;
     }
-
+    public int getptkm(){
+        return MucGia;
+    }
+    public void setptkm(int MucGia){
+        this.MucGia=MucGia;
+    }
     public int getMucGia() {
         return MucGia;
     }
