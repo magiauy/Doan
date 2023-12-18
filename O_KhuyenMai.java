@@ -47,8 +47,7 @@ public abstract class O_KhuyenMai implements Object{
         System.out.print("Nhap Muc Khuyen Mai:");
         MucKM = input.nextInt();
     }
-    public void xuat() {
-    }
+    public abstract void xuat();
 
     public void GhiFile(String filename) throws IOException {
         try (DataOutputStream dos = new DataOutputStream(new FileOutputStream(filename, true))) {
