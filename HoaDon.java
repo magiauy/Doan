@@ -75,14 +75,23 @@ public class HoaDon {
     Scanner sc = new Scanner(System.in);
 
     public void nhaphoadon() {
+        DS_NV nv = new DS_NV();
+        nv.DocFileJava("../src/NhanVien.txt");
+        DanhSachKH kh = new DanhSachKH();
+        kh.DocFileJava("../src/KhachHang.txt");
+        DS_CTKM km = new DS_CTKM();
+        km.DocFileJava("../src/ChuongTrinhKhuyenMai.txt");
         System.out.print("Nhap ma hoa don: ");
         maHoaDon = sc.nextLine();
+        nv.xuat();
         System.out.print("Nhap ma nhan vien: ");
         maNhanVien = sc.nextLine();
+        kh.xuatkhachhang();
         System.out.print("Nhap ma khach hang: ");
         maKhachHang = sc.nextLine();
-        System.out.print("Ngay lap: ");
+        System.out.print("Ngay lap(dd/mm/yyyy): ");
         ngayLap = sc.nextLine();
+        km.xuatct();
         System.out.print("Nhap ma khuyen mai: ");
         maKhuyenMai = sc.nextLine();
     }

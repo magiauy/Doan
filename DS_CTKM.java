@@ -52,10 +52,18 @@ public class DS_CTKM implements DanhSach{
             km.xuat(ds[i].getMaCT());
         }
     }
+    public void xuatct(){
+        System.out.println("Danh sach Chuong trinh khuyen mai:");
+        for(int i=0;i<n;i++){
+            ds[i].xuat();
+        }
+    }
     public void them(O_ChuongTrinhKhuyenMai ctkm) {
         ds = Arrays.copyOf(ds, ds.length + 1);
         ds[n] = ctkm;
         n++;
+        GhiFileJava("../src/ChuongTrinhKhuyenMai.txt");
+        ghiFile();
     }
     public void them() {
         O_ChuongTrinhKhuyenMai newct = new O_ChuongTrinhKhuyenMai();
@@ -69,6 +77,8 @@ public class DS_CTKM implements DanhSach{
                 ds[i].setTenCT(ten);
             }
         }
+                GhiFileJava("../src/ChuongTrinhKhuyenMai.txt");
+        ghiFile();
     }
     public void suaTheoNgayBD(String ms, String date) {
         for (int i = 0; i < n; i++) {
@@ -76,6 +86,8 @@ public class DS_CTKM implements DanhSach{
                 ds[i].setNgayBatDau(date);
             }
         }
+        GhiFileJava("../src/ChuongTrinhKhuyenMai.txt");
+        ghiFile();
     }
     public void suaTheoNgayKT(String ms, String date) {
         for (int i = 0; i < n; i++) {
@@ -83,6 +95,8 @@ public class DS_CTKM implements DanhSach{
                 ds[i].setNgayKetThuc(date);
             }
         }
+        GhiFileJava("../src/ChuongTrinhKhuyenMai.txt");
+        ghiFile();
     }
     public void sua() {
         System.out.print("Nhap Ma Chuong Trinh Khuyen Mai can sua:");
@@ -144,6 +158,8 @@ public class DS_CTKM implements DanhSach{
         else {
             System.out.println("Khong tim thay!");
         }
+        GhiFileJava("../src/ChuongTrinhKhuyenMai.txt");
+        ghiFile();
     }
     public void xoa() {
         System.out.print("Nhap Ma Chuong Trinh muon xoa:");

@@ -13,10 +13,13 @@ public class App {
             System.out.println("4. Quản lý nhà cung cấp");
             System.out.println("5. Quản lý nhân viên");
             System.out.println("6. Quản lý phiếu nhập");
-            System.out.println("7. Thoát chương  trình");
+            System.out.println("7. Quản lý khách hàng ");
+            System.out.println("0: Thoát chương trình ");
             System.out.print("Nhập lựa chọn của bạn: ");
+            if (scanner.hasNextInt()) {
             choice = scanner.nextInt();
-            scanner.nextLine();
+            scanner.nextLine(); 
+            
             switch (choice) {
                 case 1:
                     QL_Sanpham sp = new QL_Sanpham();
@@ -55,8 +58,12 @@ public class App {
                 default:
                     System.out.println("Lựa chọn không hợp lệ. Vui lòng chọn lại.");
             }
-
-        } while (choice != 8);
+        }else{
+            System.out.println("Nhap khong hop le. Vui long nhap lai.");
+            scanner.next();
+            choice=-1;
+        }
+        } while (choice != 0);
 
         scanner.close();
     }

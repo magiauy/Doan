@@ -20,8 +20,9 @@ public class QL_Hoadon {
                 System.out.println("7. Thoát");
     
                 System.out.print("Nhập lựa chọn của bạn: ");
+                if (scanner.hasNextInt()) {
                 choice = scanner.nextInt();
-    
+                scanner.nextLine();
                 switch (choice) {
                     case 1:
                         dshd.them();
@@ -36,7 +37,12 @@ public class QL_Hoadon {
                         dshd.timkiemhoadon();
                         break;
                     case 5:
-                        // dshd.thongke();
+                    System.out.print("Thong ke hoa don tu nam: ");
+                    int nam1 = scanner.nextInt();
+                    System.out.print("den nam: ");
+                    int nam2 = scanner.nextInt();
+                    scanner.nextLine();
+                        dshd.thongketientheonam(nam1,nam2);
                         break;
                     case 6:
                         dshd.xuat();
@@ -50,6 +56,11 @@ public class QL_Hoadon {
                         System.out.println("Lựa chọn không hợp lệ. Vui lòng nhập lại.");
                         break;
                 }
+            }else{
+                System.out.println("Nhap khong hop le. Vui long nhap lai.");
+                scanner.next();
+                choice=-1;
+            }
             } while (choice != 7);
     
     }

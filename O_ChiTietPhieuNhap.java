@@ -31,7 +31,7 @@ public class O_ChiTietPhieuNhap {
     public void setTenSP(String TenSP){
         this.TenSP=TenSP;
     }
-    public void SoLuong(int SoLuong){
+    public void setSoLuong(int SoLuong){
         this.SoLuong=SoLuong;
     }
     public void DonGia(double DonGia){
@@ -67,6 +67,18 @@ public class O_ChiTietPhieuNhap {
         dssp.setSoLuongpn(MaSP,SoLuong);
         dssp.GhiFileJava("../src/Sanpham.txt");
     }
+    public void updateSL(int masp,int soluong1,int soluong2){
+        dssp.DocFileJava("../src/Sanpham.txt");
+        dssp.setSoLuongpn(masp,(soluong1-soluong2));
+        dssp.GhiFileJava("../src/Sanpham.txt");
+    }
+    public void xoaSL(int ma,int soluong)
+    {
+        dssp.DocFileJava("../src/Sanpham.txt");
+        dssp.setSoLuongpn(ma,soluong);
+        dssp.GhiFileJava("../src/Sanpham.txt");
+    }
+
     public void xuat(){
         double ThanhTien;
         dssp.DocFileJava("../src/Sanpham.txt");

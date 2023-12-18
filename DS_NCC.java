@@ -65,6 +65,7 @@ public class DS_NCC implements DanhSach{
         System.out.println("Nhap thong tin nha cung cap muon them:");
         newncc.nhap();
         them(newncc);
+        GhiFileJava("../src/NhaCungCap.txt");
     }
 
     public void suaTheoTen(String ms, String ten) {
@@ -73,6 +74,7 @@ public class DS_NCC implements DanhSach{
                 dsncc[i].setTenNCC(ten);
             }
         }
+        GhiFileJava("../src/NhaCungCap.txt");
     }
 
     public void suaTheoDiaChi(String ms, String dc) {
@@ -81,6 +83,7 @@ public class DS_NCC implements DanhSach{
                 dsncc[i].setDiaChi(dc);
             }
         }
+        GhiFileJava("../src/NhaCungCap.txt");
     }
 
     public void suaTheoSdt(String ms, String sdt) {
@@ -89,6 +92,7 @@ public class DS_NCC implements DanhSach{
                 dsncc[i].setSdt(sdt);
             }
         }
+        GhiFileJava("../src/NhaCungCap.txt");
     }
 
     public void suaTheoEmail(String ms, String newMail) {
@@ -97,6 +101,7 @@ public class DS_NCC implements DanhSach{
                 dsncc[i].setEmail(newMail);
             }
         }
+        GhiFileJava("../src/NhaCungCap.txt");
     }
 
     public void sua() {
@@ -164,6 +169,7 @@ public class DS_NCC implements DanhSach{
         else {
             System.out.println("Khong tim thay!");
         }
+        GhiFileJava("../src/NhaCungCap.txt");
     }
 
     public void xoa() {
@@ -183,6 +189,7 @@ public class DS_NCC implements DanhSach{
         if (flag == false) {
             System.out.println("Khong tim thay!");
         }
+        GhiFileJava("../src/NhaCungCap.txt");
     }
 
     public void timKiemTheoTen(String newten) {

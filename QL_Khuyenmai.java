@@ -2,7 +2,7 @@ import java.util.Scanner;
 public class QL_Khuyenmai {
     public void menu(){
         Scanner scanner = new Scanner(System.in);
-        int luaChon;
+        int choice;
         DS_KM km = new DS_KM();
         km.DocFileJava("../src/KhuyenMai.txt");
         do {
@@ -15,10 +15,10 @@ public class QL_Khuyenmai {
             System.out.println("0. Thoat");
 
             System.out.print("Nhap lua chon cua ban (0-5): ");
-            luaChon = scanner.nextInt();
-            scanner.nextLine(); // Đọc dòng mới
-
-            switch (luaChon) {
+            if (scanner.hasNextInt()) {
+            choice = scanner.nextInt();  
+            scanner.nextLine();   
+            switch (choice) {
                 case 1:
                     km.them();
                     break;
@@ -40,7 +40,11 @@ public class QL_Khuyenmai {
                 default:
                     System.out.println("Lua chon khong hop le. Vui long nhap lai.");
             }
-
-        } while (luaChon != 0);
+        }else{
+            System.out.println("Nhap khong hop le. Vui long nhap lai.");
+            scanner.next();
+            choice=-1;
+        }
+        } while (choice != 0);
     }
 }

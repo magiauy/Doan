@@ -14,10 +14,12 @@ public class QL_Sanpham {
             System.out.println("4. Sửa thông tin sản phẩm");
             System.out.println("5. Tìm kiếm sản phẩm");
             System.out.println("6. Thống kê sản phẩm");
-            System.out.println("7. Thoát");
-
+            System.out.println("0. Thoát");
             System.out.print("Nhập lựa chọn của bạn: ");
-            choice = scanner.nextInt();
+            if (scanner.hasNextInt()) {
+                choice = scanner.nextInt();
+                scanner.nextLine();
+            
 
             switch (choice) {
                 case 1:
@@ -38,14 +40,16 @@ public class QL_Sanpham {
                 case 6:
                     dssp.thongke();
                     break;
-                case 7:
-                    System.out.println("Chương trình kết thúc.");
-                    break;
                 default:
                     System.out.println("Lựa chọn không hợp lệ. Vui lòng nhập lại.");
                     break;
             }
-        } while (choice != 7);
+        }else{
+            System.out.println("Nhap khong hop le. Vui long nhap lai.");
+            scanner.next();
+            choice=-1;
+        }
+        } while (choice != 0);
 
     }
 }

@@ -79,11 +79,15 @@ public class ChiTietHoaDon {
     public void nhapchitiethoadon(String id) {
         dssp.DocFileJava("../src/Sanpham.txt");
         maHD = id;
+        do{
         System.out.print("Ma san pham: ");
         maSP = sc.nextInt();
+        }while(dssp.checktontai(maSP)==false);
         TenSP = dssp.getTenSP(maSP);
+        do{
         System.out.print("So luong: ");
         SL = sc.nextInt();
+        }while(SL>dssp.TruyenSoLuong(maSP));
         dongia = dssp.Truyengiasanpham(maSP);
         dssp.setSoLuonghd(maSP,SL);
         dssp.GhiFileJava("../src/Sanpham.txt");

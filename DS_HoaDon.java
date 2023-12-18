@@ -206,7 +206,7 @@ public class DS_HoaDon implements DanhSach{
 
   public void thongketientheonam(int year1, int year2) {
     int[] count = new int[year2 - year1 + 1];
-    DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd");
+    DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
     for (int i = 0; i < n; i++) {
       LocalDate ngayLap = LocalDate.parse(hd[i].getNgayLap(), dtf);

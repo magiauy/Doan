@@ -48,7 +48,7 @@ public class DS_ctpn implements DanhSach{
                           them();
                           break;
                       case 2:
-                          // sua();
+                          sua();
                           break;
                       case 3:
                           xoa();
@@ -114,123 +114,32 @@ public class DS_ctpn implements DanhSach{
     }
 
     public void sua() {
-        boolean daTimThay = false;
-        Scanner Scanner = new Scanner(System.in);
-        System.out.println("Điền mã phiếu nhập cần sửa");
-        int temp = Scanner.nextInt();
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Nhap stt can chinh sua: ");
+        int stt = scanner.nextInt();
         for (int i = 0; i<n; i++) {
-            if (ctpn[i].getMaPN().equals(temp) ) {
-                System.out.println("Chọn thuộc tính cần sửa");
-                System.out.println("1: Sửa mã phiếu nhập");
-                System.out.println("2: Sửa mã sản phẩm");
-                System.out.println("3: Sửa tên sản phẩm");
-                System.out.println("4: Sửa số lượng");
-                System.out.println("5: Sửa đơn giá");
-                System.out.println("Vui lòng nhập từ 1-5: ");
-                int c = Scanner.nextInt();
-                switch (c) {
-                    case 1:
-                        System.out.println("Nhập mã phiếu nhập mới: ");
-                        String tempMaPN = Scanner.nextLine();
-                        ctpn[i].setMaPN(tempMaPN);
-                        break;
-                    case 2: 
-                        System.out.println("Nhập mã sản phẩm mới: "); 
-                        int tempMaSP = Scanner.nextInt();   
-                        ctpn[i].setMaSP(tempMaSP);
-                        break;
-                    case 3: 
-                        Scanner scanner3 = new Scanner(System.in);
-                        System.out.println("Nhập tên sản phẩm mới: "); 
-                        String tempTenSP = Scanner.nextLine();   
-                        ctpn[i].setTenSP(tempTenSP);
-                        break; 
-                    case 4:
-                        System.out.println("Nhập ngày lập mới: ");     
-                        int tempSoLuong = Scanner.nextInt();
-                        ctpn[i].SoLuong(tempSoLuong);  
-                    case 5: 
-                        System.out.println("Nhập đơn giá mới: ");
-                        int tempDonGia = Scanner.nextInt();
-                        ctpn[i].DonGia(tempDonGia);
-                    default:
-                        break;
+            if (i==(stt-1) ) {
+                System.out.print("Nhap so luong moi: ");
+                int tempsl = scanner.nextInt();
+                ctpn[i].updateSL(ctpn[i].getMaSP(),ctpn[i].getSoLuong(),tempsl);
+                ctpn[i].setSoLuong(tempsl);
+
                 }
-                daTimThay = true;
             }
-        }
-        if (!daTimThay) {
-			System.out.println("Không tìm thấy mã phiếu nhập: ");
-		}
     }
 
-    public void timkiem() {
-        Scanner Scanner = new Scanner(System.in);
-        System.out.println("Chọn phương thức tìm kiếm");
-        System.out.println("1: Tìm kiếm theo mã phiếu nhập");
-        System.out.println("2: Tìm kiếm theo mã sản phẩm");
-        System.out.println("3: Tìm kiếm theo tên sản phẩm");
-        System.out.println("4: tìm kiếm theo số lượng");
-        System.out.println("5: Tìm kiếm theo đơn giá");
-        int c = Scanner.nextInt();
-        switch (c) {
-            case 1:
-                System.out.println("Nhập mã phiếu nhập cần tìm: ");
-                int tempMaPN = Scanner.nextInt();
-                for (int i = 0; i < n; i++) {
-                    if (ctpn[i].getMaPN().equals(tempMaPN) ) {
-                        ctpn[i].xuat();
-                    }
-                }
-                break;
-            case 2:
-                System.out.println("Nhập mã sản phẩm cần tìm: ");
-                int tempMaSP = Scanner.nextInt();
-                for (int i = 0; i < n ; i++) {
-                    if (ctpn[i].getMaSP() == tempMaSP) {
-                        ctpn[i].xuat();
-                    }
-                }
-                break;
-            case 3:
-                System.out.println("Nhập tên sản phẩm cần tìm: ");
-                String tempTenSP = Scanner.nextLine();
-                for (int i = 0; i < n ; i++) {
-                    if (ctpn[i].getTenSP().equals(tempTenSP)) {
-                        ctpn[i].xuat();
-                    }
-                }
-                break;
-            case 4:
-                System.out.println("Nhập số lượng cần tìm: ");
-                int tempSoLuong = Scanner.nextInt();
-                for (int i = 0; i < n; i++) {
-                    if (ctpn[i].getSoLuong() == tempSoLuong) {
-                        ctpn[i].xuat();
-                    }
-                }
-            case 5:
-                System.out.println("Nhập đơn giá cần tìm: ");
-                int tempDonGia = Scanner.nextInt();
-                for (int i = 0; i < n; i++) {
-                    if (ctpn[i].getDonGia() == tempDonGia) {
-                        ctpn[i].xuat();
-                    }
-                }   
-                break;        
-            default:
-                break;
-        }
-    }
+ 
 
     public void xoa() {
 		boolean daTimThay = false;
-		System.out.print("Nhập mã phiếu nhập cần xóa: ");
+		System.out.print("Nhap stt can xoa");
 		Scanner Scanner = new Scanner(System.in);
 		int x=Scanner.nextInt();
 		for (int i=0;i<n ;i++ ) {
-			if (ctpn[i].getMaPN().equals(x) ) {
+			if (i==(x-1) ) {
+                ctpn[i].xoaSL(ctpn[i].getMaSP(),ctpn[i].getSoLuong());
 				for(int j=i;j<n-1;j++){
+
 					ctpn[j]=ctpn[j+1];
 				}
 			n--;

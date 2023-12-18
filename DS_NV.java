@@ -65,6 +65,7 @@ public class DS_NV implements DanhSach{
         O_NhanVien newnv = new O_NhanVien();
         newnv.nhap();
         them(newnv);
+        GhiFileJava("../src/NhanVien.txt");
     }
 
     public void suaTheoHoDem(String ms, String newHo) {
@@ -73,6 +74,7 @@ public class DS_NV implements DanhSach{
                 dsnv[i].setHoDem(newHo);
             }
         }
+        GhiFileJava("../src/NhanVien.txt");
     }
 
     public void suaTheoTen(String ms, String newTen) {
@@ -81,6 +83,7 @@ public class DS_NV implements DanhSach{
                 dsnv[i].setTenNV(newTen);
             }
         }
+        GhiFileJava("../src/NhanVien.txt");
     }
 
     public void suaTheoNgaySinh(String ms, String newDate) {
@@ -89,6 +92,7 @@ public class DS_NV implements DanhSach{
                 dsnv[i].setNgaySinh(newDate);
             }
         }
+        GhiFileJava("../src/NhanVien.txt");
     }
 
     public void suaTheoLuong(String ms, Double newLuong) {
@@ -97,6 +101,7 @@ public class DS_NV implements DanhSach{
                 dsnv[i].setLuong(newLuong);
             }
         }
+        GhiFileJava("../src/NhanVien.txt");
     }
 
     public void suaTheoPhai(String ms, String newPhai) {
@@ -105,6 +110,7 @@ public class DS_NV implements DanhSach{
                 dsnv[i].setPhai(newPhai);
             }
         }
+        GhiFileJava("../src/NhanVien.txt");
     }
 
     public void sua() {
@@ -183,6 +189,7 @@ public class DS_NV implements DanhSach{
         else {
             System.out.println("Khong tim thay!");
         }
+        GhiFileJava("../src/NhanVien.txt");
     }
 
     public void xoa() {
@@ -271,12 +278,17 @@ public class DS_NV implements DanhSach{
 
     // Tìm kiếm nhân viên có mức lương L1 => mức lương L2
     public void timKiemTheoLuong12(double luong1, double luong2) {
+        boolean flag = false;
         System.out.println("Nhan Vien co muc luong tu " + luong1 + " den " + luong2 + ":");
         for (int i = 0; i < n; i++) {
             double luong = dsnv[i].getLuong();
             if (luong >= luong1 && luong <= luong2) {
                 dsnv[i].xuat();
+                flag = true;
             }
+        }
+        if (flag == false) {
+            System.out.println("Khong tim thay!");
         }
     }
 
@@ -286,27 +298,36 @@ public class DS_NV implements DanhSach{
         LocalDate ns1 = LocalDate.parse(ngaySinh1, dtf);
         LocalDate ns2 = LocalDate.parse(ngaySinh2, dtf);
 
+        boolean flag = false;
         System.out.println("Nhan Vien co ngay sinh " + ngaySinh1 + " den " + ngaySinh2 + ":");
         for (int i = 0; i < n; i++) {
             LocalDate ngaySinh = LocalDate.parse(dsnv[i].getNgaySinh(), dtf);
             if ((ngaySinh.isAfter(ns1) || ngaySinh.isEqual(ns1)) && (ngaySinh.isBefore(ns2) || ngaySinh.isEqual(ns2))) {
                 dsnv[i].xuat();
+                flag = true;
             }
+        }
+        if (flag == false) {
+            System.out.println("Khong tim thay!");
         }
     }
     // Tìm kiếm nhân viên có năm sinh year1 => năm sinh year2
     public void timKiemTheoNamSinh12(int year1, int year2) {
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd");
 
+        boolean flag = false;
         for (int i = 0; i < n; i++) {
             LocalDate ngaySinh = LocalDate.parse(dsnv[i].getNgaySinh(), dtf);
             int year = ngaySinh.getYear();
             if (year >= year1 && year <= year2) {
                 dsnv[i].xuat();
+                flag = true;
             }
         }
+        if (flag == false) {
+            System.out.println("Khong tim thay!");
+        }
     }
-
     public void timKiem() {
         System.out.println("1: Ma Nhan Vien");
         System.out.println("2: Ho Dem");
@@ -389,8 +410,8 @@ public class DS_NV implements DanhSach{
                 countMale++;
             }
         }
-        System.out.println("Danh sach co " + countFemale + " sinh vien Nu.");
-        System.out.println("Danh sach co " + countMale + " sinh vien Nam.");
+        System.out.println("Danh sach co " + countFemale + " nhan vien Nu.");
+        System.out.println("Danh sach co " + countMale + " nhan vien Nam.");
     }
 
     public void thongKeTheoTuoi() {
@@ -405,9 +426,10 @@ public class DS_NV implements DanhSach{
             }
         }
         // In kết quả
+        System.out.format("%-8s %-8s\n","Tuoi","So Luong");
         for (int i = 0; i < count.length; i++) {
             if (count[i] > 0) {
-                System.out.println("Danh sach co " + count[i] + " Nhan Vien " + i + " tuoi.");
+                System.out.format("%-8d %-8d\n",count[i],i);
             }
         }
     }
@@ -425,9 +447,10 @@ public class DS_NV implements DanhSach{
             }
         }
         // In kết quả
+        System.out.format("%-8s %-8s \n","Nam Sinh","So Luong");
         for (int i = 0; i < count.length; i++) {
             if (count[i] > 0) {
-                System.out.println("Danh sach co " + count[i] + " Nhan Vien sinh nam " + (year1 + i));
+                System.out.format("%-8d %-10d\n",(year1+i),count[i]);
             }
             
         }
