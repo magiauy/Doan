@@ -61,7 +61,6 @@ public class DS_NV implements DanhSach{
         dsnv[n] = nv;
         n++;
     }
-
     public void them() {
         O_NhanVien newnv = new O_NhanVien();
         newnv.nhap();
@@ -503,5 +502,13 @@ public class DS_NV implements DanhSach{
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+    public boolean checkNV(String id){
+        for(int i=0;i<n;i++){
+            if (dsnv[i].getMaNV().equals(id)) {
+                return true;
+            }
+        }
+        return false;
     }
 }

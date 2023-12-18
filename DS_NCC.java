@@ -322,4 +322,12 @@ public class DS_NCC implements DanhSach{
             e.printStackTrace();
         }
     }
+    public boolean checkNCC(String id){
+        for(int i=0;i<n;i++){
+            if (dsncc[i].getMaNCC().equals(id)) {
+                return true;
+            }
+        }
+        return false;
+    }
 }

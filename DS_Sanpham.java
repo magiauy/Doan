@@ -538,6 +538,14 @@ public class DS_Sanpham implements DanhSach{
 			}
 		}
 	}
+	public boolean checkSP(int id){
+		for(int i=0 ;i<n;i++){
+			if (sp[i].getMaSP()==id) {
+				return true;
+			}
+		}
+		return false;
+	}
 	
 
 
